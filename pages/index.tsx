@@ -7,10 +7,11 @@ const Home: NextPage = () => {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Hydra</title>
+        <title>Insurae</title>
         <meta name="description" content="Smart Insurance" />
         <link rel="icon" href="/hydra.png" />
       </Head>
+
       <Login />
     </div>
   )
