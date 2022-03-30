@@ -18,6 +18,8 @@ import CustomAppBar from '../../components/CustomAppBar'
 import CustomDrawer from '../../components/CustomDrawer'
 import CustomDrawerHeader from '../../components/CustomDrawerHeader'
 import Toolbar from '@mui/material/Toolbar'
+import Tooltip from '@mui/material/Tooltip'
+import Avatar from '@mui/material/Avatar'
 
 interface ContainerProps {
   headerTitle?: string
@@ -56,6 +58,13 @@ const Container = ({ headerTitle = 'Insurae', children }: ContainerProps) => {
           <Typography variant="h6" noWrap component="div">
             {headerTitle}
           </Typography>
+          <Box sx={{ position: 'absolute', right: 25 }}>
+            <Tooltip title="Open settings">
+              <IconButton sx={{ p: 0 }}>
+                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+              </IconButton>
+            </Tooltip>
+          </Box>
         </Toolbar>
       </CustomAppBar>
       <CustomDrawer variant="permanent" open={open}>
