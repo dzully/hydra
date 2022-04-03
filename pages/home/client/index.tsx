@@ -1,6 +1,6 @@
 import MultipleCard from '../../../containers/MultipleCard'
 
-const Agent = () => (
+const Client = () => (
   <div
     style={{
       display: 'flex',
@@ -11,4 +11,4 @@ const Agent = () => (
   </div>
 )
 
-export default Agent
+export default Client
