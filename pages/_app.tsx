@@ -45,7 +45,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           <CacheProvider value={cache}>
             <ThemeProvider theme={theme}>
               <CssBaseline />
-              {router.asPath.indexOf('/Dashboard') === -1 ? (
+              {router.asPath.indexOf('/home') === -1 ? (
                 <Component {...pageProps} />
               ) : (
                 <Container>

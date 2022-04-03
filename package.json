@@ -29,6 +29,7 @@
     "react-countup": "^6.2.0",
     "react-dom": "18.0.0",
     "react-redux": "^7.2.8",
+    "uuid": "^8.3.2",
     "yup": "^0.32.11"
   },
   "devDependencies": {

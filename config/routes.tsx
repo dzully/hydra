@@ -1,5 +1,5 @@
-import { DashboardCustomizeOutlined } from '@mui/icons-material'
-import { ReactNode } from 'react'
+import DashboardCustomizeOutlined from '@mui/icons-material/DashboardCustomizeOutlined'
+import SupportAgent from '@mui/icons-material/SupportAgent'
 
 export interface Routes {
   id: number
@@ -12,13 +12,13 @@ export const routes: Routes[] = [
   {
     id: 0,
     label: 'Home',
-    path: '/Dashboard',
+    path: '/home/overview',
     icon: <DashboardCustomizeOutlined />,
   },
   {
     id: 1,
     label: 'Agent',
-    path: '/Dashboard/agent',
-    icon: <DashboardCustomizeOutlined />,
+    path: '/home/agent',
+    icon: <SupportAgent />,
   },
 ]

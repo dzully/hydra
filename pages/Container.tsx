@@ -12,8 +12,6 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight'
 import ListItemButton from '@mui/material/ListItemButton'
 import ListItemIcon from '@mui/material/ListItemIcon'
 import ListItemText from '@mui/material/ListItemText'
-import InboxIcon from '@mui/icons-material/MoveToInbox'
-import MailIcon from '@mui/icons-material/Mail'
 import Toolbar from '@mui/material/Toolbar'
 import Tooltip from '@mui/material/Tooltip'
 import Avatar from '@mui/material/Avatar'
@@ -22,14 +20,13 @@ import CustomDrawerHeader from '../components/CustomDrawerHeader'
 import CustomDrawer from '../components/CustomDrawer'
 import CustomAppBar from '../components/CustomAppBar'
 import { Routes, routes } from '../config/routes'
-import { text } from 'stream/consumers'
 
 interface ContainerProps {
   headerTitle?: string
   children?: ReactNode
 }
 
-const Container = ({ headerTitle = 'Insurae', children }: ContainerProps) => {
+const Container = ({ headerTitle = 'Insurare', children }: ContainerProps) => {
   const router = useRouter()
   const theme = useTheme()
   const [open, setOpen] = useState(false)
@@ -41,6 +38,8 @@ const Container = ({ headerTitle = 'Insurae', children }: ContainerProps) => {
   const handleDrawerClose = () => {
     setOpen(false)
   }
+
+  const handleRoute = (newRoute: string) => () => router.push(newRoute)
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -83,34 +82,38 @@ const Container = ({ headerTitle = 'Insurae', children }: ContainerProps) => {
         </CustomDrawerHeader>
         <Divider />
         <List style={{ padding: 2 }}>
-          {routes.map((item: Routes) => (
-            <ListItemButton
-              disabled={item.path === router.pathname}
-              key={item.id}
-              style={{ marginBottom: 2, borderRadius: 3, opacity: 1 }}
-              sx={{
-                bgcolor:
-                  router.asPath === item.path ? 'primary.dark' : 'transparent',
-                minHeight: 48,
-                justifyContent: open ? 'initial' : 'center',
-                p: 2.5,
-              }}
-            >
-              <ListItemIcon
+          {routes.map((item: Routes) => {
+            const validate = router.pathname.indexOf(item.path) !== -1
+
+            return (
+              <ListItemButton
+                disabled={validate}
+                onClick={handleRoute(item.path)}
+                key={item.id}
+                style={{ marginBottom: 2, borderRadius: 3, opacity: 1 }}
                 sx={{
-                  minWidth: 0,
-                  mr: open ? 3 : 'auto',
-                  justifyContent: 'center',
+                  bgcolor: validate ? 'primary.dark' : 'transparent',
+                  minHeight: 48,
+                  justifyContent: open ? 'initial' : 'center',
+                  p: 2.5,
                 }}
               >
-                {item.icon}
-              </ListItemIcon>
-              <ListItemText
-                primary={item.label}
-                sx={{ opacity: open ? 1 : 0 }}
-              />
-            </ListItemButton>
-          ))}
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 3 : 'auto',
+                    justifyContent: 'center',
+                  }}
+                >
+                  {item.icon}
+                </ListItemIcon>
+                <ListItemText
+                  primary={item.label}
+                  sx={{ opacity: open ? 1 : 0 }}
+                />
+              </ListItemButton>
+            )
+          })}
         </List>
       </CustomDrawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>

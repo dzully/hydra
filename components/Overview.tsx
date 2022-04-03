@@ -1,7 +1,7 @@
-import Box from '@mui/material/Box'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import Typography from '@mui/material/Typography'
+import { startCase } from 'lodash'
 import CountUp from 'react-countup'
 
 interface statisticProps {
@@ -53,7 +53,7 @@ const Overview = ({
             }}
           >
             <Typography variant="subtitle1" color="text.secondary">
-              {item.title}
+              {startCase(item.title?.toLowerCase())}
             </Typography>
             <CountUp
               start={0}

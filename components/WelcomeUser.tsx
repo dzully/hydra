@@ -9,7 +9,7 @@ interface WelcomeUserProps {
 }
 
 const WelcomeUser = ({
-  username = 'Dzul Syakimin',
+  username = 'Hello Dzul Syakimin',
   subHeading = 'Have a nice day to work',
 }: WelcomeUserProps) => (
   <div
@@ -35,7 +35,7 @@ const WelcomeUser = ({
           variant="h4"
           color="text.secondary"
         >
-          Hello {username}
+          {username}
         </Typography>
         <Typography variant="subtitle1" color="text.secondary">
           {subHeading}
