@@ -14,12 +14,15 @@ import ListItemIcon from '@mui/material/ListItemIcon'
 import ListItemText from '@mui/material/ListItemText'
 import InboxIcon from '@mui/icons-material/MoveToInbox'
 import MailIcon from '@mui/icons-material/Mail'
-import CustomAppBar from '../../components/CustomAppBar'
-import CustomDrawer from '../../components/CustomDrawer'
-import CustomDrawerHeader from '../../components/CustomDrawerHeader'
 import Toolbar from '@mui/material/Toolbar'
 import Tooltip from '@mui/material/Tooltip'
 import Avatar from '@mui/material/Avatar'
+import { useRouter } from 'next/router'
+import CustomDrawerHeader from '../components/CustomDrawerHeader'
+import CustomDrawer from '../components/CustomDrawer'
+import CustomAppBar from '../components/CustomAppBar'
+import { Routes, routes } from '../config/routes'
+import { text } from 'stream/consumers'
 
 interface ContainerProps {
   headerTitle?: string
@@ -27,6 +30,7 @@ interface ContainerProps {
 }
 
 const Container = ({ headerTitle = 'Insurae', children }: ContainerProps) => {
+  const router = useRouter()
   const theme = useTheme()
   const [open, setOpen] = useState(false)
 
@@ -78,14 +82,18 @@ const Container = ({ headerTitle = 'Insurae', children }: ContainerProps) => {
           </IconButton>
         </CustomDrawerHeader>
         <Divider />
-        <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+        <List style={{ padding: 2 }}>
+          {routes.map((item: Routes) => (
             <ListItemButton
-              key={text}
+              disabled={item.path === router.pathname}
+              key={item.id}
+              style={{ marginBottom: 2, borderRadius: 3, opacity: 1 }}
               sx={{
+                bgcolor:
+                  router.asPath === item.path ? 'primary.dark' : 'transparent',
                 minHeight: 48,
                 justifyContent: open ? 'initial' : 'center',
-                px: 2.5,
+                p: 2.5,
               }}
             >
               <ListItemIcon
@@ -95,33 +103,12 @@ const Container = ({ headerTitle = 'Insurae', children }: ContainerProps) => {
                   justifyContent: 'center',
                 }}
               >
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                {item.icon}
               </ListItemIcon>
-              <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-            </ListItemButton>
-          ))}
-        </List>
-        <Divider />
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItemButton
-              key={text}
-              sx={{
-                minHeight: 48,
-                justifyContent: open ? 'initial' : 'center',
-                px: 2.5,
-              }}
-            >
-              <ListItemIcon
-                sx={{
-                  minWidth: 0,
-                  mr: open ? 3 : 'auto',
-                  justifyContent: 'center',
-                }}
-              >
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+              <ListItemText
+                primary={item.label}
+                sx={{ opacity: open ? 1 : 0 }}
+              />
             </ListItemButton>
           ))}
         </List>

@@ -2,6 +2,7 @@ import type { AppProps } from 'next/app'
 import { Provider } from 'react-redux'
 import CssBaseline from '@mui/material/CssBaseline'
 import { red } from '@mui/material/colors'
+import { useRouter } from 'next/router'
 import {
   ThemeProvider,
   createTheme,
@@ -13,6 +14,7 @@ import AdapterDateFns from '@mui/lab/AdapterDateFns'
 import LocalizationProvider from '@mui/lab/LocalizationProvider'
 import '../styles/globals.css'
 import { store } from '../redux/store'
+import Container from './Container'
 
 const theme = createTheme({
   palette: {
@@ -35,6 +37,7 @@ const cache = createCache({
 })
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const router = useRouter()
   return (
     <Provider store={store}>
       <StyledEngineProvider injectFirst>
@@ -42,7 +45,13 @@ function MyApp({ Component, pageProps }: AppProps) {
           <CacheProvider value={cache}>
             <ThemeProvider theme={theme}>
               <CssBaseline />
-              <Component {...pageProps} />
+              {router.asPath.indexOf('/Dashboard') === -1 ? (
+                <Component {...pageProps} />
+              ) : (
+                <Container>
+                  <Component {...pageProps} />
+                </Container>
+              )}
             </ThemeProvider>
           </CacheProvider>
         </LocalizationProvider>
