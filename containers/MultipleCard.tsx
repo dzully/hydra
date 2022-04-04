@@ -17,17 +17,21 @@ const statistic = [
   { id: 3, title: 'policy sold this month', value: '214' },
 ]
 
-const MultipleCard = () => {
+interface MultipleCardProps {
+  tableData?: any
+}
+
+const MultipleCard = ({ tableData }: MultipleCardProps) => {
   const router = useRouter()
 
-  const handleSelected = (userId: number) => {
+  const handleSelected = (userId: string) => {
     router.push(`${window.location.pathname}/${userId}`)
   }
 
   return (
     <>
       <Overview statistic={statistic} />
-      <CustomTable handleSelected={handleSelected} />
+      <CustomTable handleSelected={handleSelected} tableData={tableData} />
     </>
   )
 }

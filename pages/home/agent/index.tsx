@@ -1,22 +1,22 @@
-import MultipleCard from "../../../containers/MultipleCard";
+import { useState } from 'react'
+import useSWR from 'swr'
+import MultipleCard from '../../../containers/MultipleCard'
+
+const fetcher = (url: string) => fetch(url).then((res) => res.json())
 
 const Agent = () => {
-  
-    // Simple GET request using fetch
-    fetch('/client.json')
-        .then(response => response.json())
-        .then(data => console.log(data));
+  const { data } = useSWR('/client.json', fetcher)
 
   return (
     <div
       style={{
-        display: "flex",
-        flexDirection: "column",
+        display: 'flex',
+        flexDirection: 'column',
       }}
     >
-      <MultipleCard />
+      <MultipleCard tableData={data} />
     </div>
-  );
-};
+  )
+}
 
-export default Agent;
+export default Agent
