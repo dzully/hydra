@@ -1,9 +1,9 @@
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import useSWR from 'swr'
-import { fetcher } from '../../pages/home/agent'
-import { handleAllUser } from '../../redux/reducer/client'
-import { RootState } from '../../redux/store'
+import { fetcher } from '../pages/home/agent'
+import { handleAllUser } from '../redux/reducer/client'
+import { RootState } from '../redux/store'
 
 const useClient = () => {
   const listClient = useSelector((state: RootState) => state.client.listClient)

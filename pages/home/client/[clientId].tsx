@@ -1,5 +1,5 @@
-import useClient from '../../../components/hook/useClient'
-import useSelectedClient from '../../../components/hook/useSelectedClient'
+import useClient from '../../../hook/useClient'
+import useSelectedClient from '../../../hook/useSelectedClient'
 import WelcomeUser from '../../../components/WelcomeUser'
 import OverviewComponent from '../../../components/Overview'
 

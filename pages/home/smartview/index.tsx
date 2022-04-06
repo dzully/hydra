@@ -1,4 +1,4 @@
-import useMap from '../../../components/hook/useMap'
+import useMap from '../../../hook/useMap'
 import Layer from '../../../containers/Layer'
 import 'maplibre-gl/dist/maplibre-gl.css'
 

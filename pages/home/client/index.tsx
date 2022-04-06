@@ -1,4 +1,4 @@
-import useClient from '../../../components/hook/useClient'
+import useClient from '../../../hook/useClient'
 import MultipleCard from '../../../containers/MultipleCard'
 
 const Client = () => {

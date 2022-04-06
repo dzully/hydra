@@ -1,8 +1,8 @@
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { listClientProps } from '../../redux/reducer/client'
-import { RootState } from '../../redux/store'
+import { listClientProps } from '../redux/reducer/client'
+import { RootState } from '../redux/store'
 
 const useSelectedClient = () => {
   const router = useRouter()
