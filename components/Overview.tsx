@@ -5,13 +5,15 @@ import { startCase } from 'lodash'
 import CountUp from 'react-countup'
 
 interface statisticProps {
-  id: number
+  id: number | string
   title: string
   value: string
 }
 
 interface OverviewProps {
   statistic?: statisticProps[]
+  countUpSeparator?: string
+  countUpStyle?: boolean
 }
 
 const Overview = ({
@@ -29,9 +31,11 @@ const Overview = ({
     { id: 2, title: 'Yearly Total Quotes Generated', value: '1504' },
     { id: 3, title: 'Conversion Rate (%)', value: '56.18' },
   ],
+  countUpSeparator = ',',
+  countUpStyle = true,
 }: OverviewProps) => (
   <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-    {statistic?.map((item) => (
+    {statistic?.map((item: statisticProps) => (
       <div
         key={item.id}
         style={{
@@ -55,21 +59,32 @@ const Overview = ({
             <Typography variant="subtitle1" color="text.secondary">
               {startCase(item.title?.toLowerCase())}
             </Typography>
-            <CountUp
-              start={0}
-              end={Number(item.value)}
-              duration={2.75}
-              separator=","
-            >
-              {({ countUpRef }) => (
-                <Typography
-                  variant="h1"
-                  sx={{ fontWeight: 'bold' }}
-                  color="text.secondary"
-                  ref={countUpRef}
-                />
-              )}
-            </CountUp>
+
+            {countUpStyle ? (
+              <CountUp
+                start={0}
+                end={Number(item.value)}
+                duration={2.75}
+                separator={countUpSeparator}
+              >
+                {({ countUpRef }) => (
+                  <Typography
+                    variant="h1"
+                    sx={{ fontWeight: 'bold' }}
+                    color="text.secondary"
+                    ref={countUpRef}
+                  />
+                )}
+              </CountUp>
+            ) : (
+              <Typography
+                variant="h1"
+                sx={{ fontWeight: 'bold' }}
+                color="text.secondary"
+              >
+                {item.value}
+              </Typography>
+            )}
           </CardContent>
         </Card>
       </div>
