@@ -22,6 +22,7 @@ const PolicyCard = ({ data }: PolicyCardProps) => {
                 height="140"
                 image={item.images}
                 alt={item.images}
+                sx={{ objectFit: 'scale-down' }}
               />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div">

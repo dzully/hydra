@@ -83,7 +83,7 @@ const Container = ({ headerTitle = 'Insurare', children }: ContainerProps) => {
         <Divider />
         <List style={{ padding: 2 }}>
           {routes.map((item: Routes) => {
-            const validate = router.pathname.indexOf(item.path) !== -1
+            const validate = router.pathname.includes(item.path)
 
             return (
               <ListItemButton

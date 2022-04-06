@@ -20,45 +20,37 @@ const statistic = [
 const data = [
   {
     id: 0,
-    images: 'https://source.unsplash.com/random',
+    images: '/life-insurance.jpeg',
     title: 'Life Insurance',
-    description: 'Policy 1 description',
+    description:
+      'Life insurance is a contract between an insurer and a policy owner. A life insurance policy guarantees the insurer pays a sum of money to named beneficiaries when the insured dies in exchange for the premiums paid by the policyholder during their lifetime.',
   },
   {
     id: 1,
-    images: 'https://source.unsplash.com/random',
+    images: '/transport-private.jpeg',
     title: 'Private Vehicle Insurance',
-    description: 'Policy 1 description',
+    description:
+      'Private vehicle insurance protects you against damages to other people’s vehicles and injuries they may sustain. You and any additional drivers named in the policy will also be covered for loss, theft or damage to your car and any injuries caused by an accident',
   },
   {
     id: 2,
-    images: 'https://source.unsplash.com/random',
-    title: 'Boat Insurance',
+    images: '/boat-insurance.png',
+    title: 'Shop Insurance',
     description: 'Policy 1 description',
   },
   {
     id: 3,
-    images: 'https://source.unsplash.com/random',
+    images: '/health-insurance.jpeg',
     title: 'Health Insurance',
-    description: 'Policy 1 description',
-  },
-  {
-    id: 4,
-    images: 'https://source.unsplash.com/random',
-    title: 'Health Insurance',
-    description: 'Policy 1 description',
+    description:
+      'Health insurance is a type of insurance that covers medical expenses that arise due to an illness. These expenses could be related to hospitalisation costs, cost of medicines or doctor consultation fees.',
   },
   {
     id: 5,
-    images: 'https://source.unsplash.com/random',
+    images: '/home-insurance.jpeg',
     title: 'Homeowner Insurance',
-    description: 'Policy 1 description',
-  },
-  {
-    id: 6,
-    images: 'https://source.unsplash.com/random',
-    title: 'Health Insurance',
-    description: 'Policy 1 description',
+    description:
+      "Homeowners insurance is a form of property insurance that covers losses and damages to an individual's residence, along with furnishings and other assets in the home. Homeowners insurance also provides liability coverage against accidents in the home or on the property.",
   },
 ]
 

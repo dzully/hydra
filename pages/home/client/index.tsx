@@ -1,9 +1,8 @@
-import useSWR from 'swr'
+import useClient from '../../../components/hook/useClient'
 import MultipleCard from '../../../containers/MultipleCard'
-import { fetcher } from '../agent'
 
 const Client = () => {
-  const { data } = useSWR('/client.json', fetcher)
+  const { listClient } = useClient()
 
   return (
     <div
@@ -12,7 +11,7 @@ const Client = () => {
         flexDirection: 'column',
       }}
     >
-      <MultipleCard tableData={data} />
+      <MultipleCard tableData={listClient} />
     </div>
   )
 }

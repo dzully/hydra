@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import authenticationReducers from "./reducer/authentication";
+import clientReducer from "./reducer/client";
 
 export const store = configureStore({
   reducer: {
     authentication: authenticationReducers,
+    client: clientReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
