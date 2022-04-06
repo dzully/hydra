@@ -2,6 +2,7 @@ import useClient from '../../../hook/useClient'
 import useSelectedClient from '../../../hook/useSelectedClient'
 import WelcomeUser from '../../../components/WelcomeUser'
 import OverviewComponent from '../../../components/Overview'
+import ClientTab from '../../../containers/ClientTab'
 
 const ClientId = () => {
   useClient()
@@ -43,6 +44,7 @@ const ClientId = () => {
         statistic={statistic}
         countUpSeparator=""
       />
+      <ClientTab />
     </div>
   )
 }
