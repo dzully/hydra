@@ -1,5 +1,5 @@
-import Link from "next/link";
-import * as React from "react";
+import Link from 'next/link'
+import * as React from 'react'
 import {
   Grid,
   makeStyles,
@@ -13,25 +13,21 @@ import {
   CardHeader,
   FormControl,
   TextField,
-} from "@material-ui/core";
+} from '@material-ui/core'
 
-import { Formik, Form, Field } from "formik";
-import HydraPict from "../../public/hydra.png";
-import Image from "next/image";
-import type { NextPage } from "next";
+import { Formik, Form, Field } from 'formik'
+import HydraPict from '../../public/hydra.png'
+import Image from 'next/image'
+import type { NextPage } from 'next'
 
-  
-  //Data
-  const initialValues = {
-    email: "",
-    password: "",
-  }
-  
+//Data
+const initialValues = {
+  email: '',
+  password: '',
+}
 
 const LoginForm: React.FC = () => {
-
-
-  const onSubmit = (values:any) => {
+  const onSubmit = (values: any) => {
     console.log(values)
   }
 
@@ -47,7 +43,11 @@ const LoginForm: React.FC = () => {
                   container
                   spacing={2}
                   justify="center"
-                  style={{ display: "flex", flexDirection: "column" ,width:"350px" }}
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    width: '350px',
+                  }}
                 >
                   <Grid item xs={12} sm={12} md={12}>
                     <Field
@@ -73,16 +73,16 @@ const LoginForm: React.FC = () => {
                 </Grid>
               </CardContent>
               <CardActions>
-                <Button style={{ width: "100%" }} variant="contained">
+                <Button style={{ width: '100%' }} variant="contained">
                   Login
                 </Button>
               </CardActions>
             </Form>
-          );
+          )
         }}
       </Formik>
     </>
-  );
-};
+  )
+}
 
-export default LoginForm;
+export default LoginForm

@@ -1,4 +1,4 @@
-import React from "react"
+import React from 'react'
 import {
   Grid,
   makeStyles,
@@ -11,11 +11,11 @@ import {
   Button,
   CardHeader,
   FormControl,
-  TextField
-} from "@material-ui/core"
+  TextField,
+} from '@material-ui/core'
 
-import { Formik, Form, Field } from "formik"
-import * as Yup from "yup"
+import { Formik, Form, Field } from 'formik'
+import * as Yup from 'yup'
 // import { TextField } from "formik-material-ui"
 
 const useStyle = makeStyles((theme) => ({
@@ -29,12 +29,12 @@ const useStyle = makeStyles((theme) => ({
 
 //Data
 const initialValues = {
-  firstName: "",
-  lastName: "",
-  city: "",
-  country: "",
-  email: "",
-  password: "",
+  firstName: '',
+  lastName: '',
+  city: '',
+  country: '',
+  email: '',
+  password: '',
 }
 
 //password validation
@@ -45,27 +45,27 @@ const lengthRegEx = /(?=.{6,})/
 
 //validation schema
 let validationSchema = Yup.object().shape({
-  firstName: Yup.string().required("Required"),
-  lastName: Yup.string().required("Required"),
-  email: Yup.string().email("Invalid email").required("Required"),
+  firstName: Yup.string().required('Required'),
+  lastName: Yup.string().required('Required'),
+  email: Yup.string().email('Invalid email').required('Required'),
   password: Yup.string()
     .matches(
       lowercaseRegEx,
-      "Must contain one lowercase alphabetical character!"
+      'Must contain one lowercase alphabetical character!',
     )
     .matches(
       uppercaseRegEx,
-      "Must contain one uppercase alphabetical character!"
+      'Must contain one uppercase alphabetical character!',
     )
-    .matches(numericRegEx, "Must contain one numeric character!")
-    .matches(lengthRegEx, "Must contain 6 characters!")
-    .required("Required!"),
+    .matches(numericRegEx, 'Must contain one numeric character!')
+    .matches(lengthRegEx, 'Must contain 6 characters!')
+    .required('Required!'),
 })
 
 const RegistrationForm = () => {
   const classes = useStyle()
 
-  const onSubmit = (values:any) => {
+  const onSubmit = (values: any) => {
     console.log(values)
   }
 
@@ -77,7 +77,8 @@ const RegistrationForm = () => {
           <Formik
             initialValues={initialValues}
             validationSchema={validationSchema}
-            onSubmit={onSubmit}>
+            onSubmit={onSubmit}
+          >
             {({ dirty, isValid, values, handleChange, handleBlur }) => {
               return (
                 <Form>
@@ -148,9 +149,7 @@ const RegistrationForm = () => {
                     </Grid>
                   </CardContent>
                   <CardActions>
-                    <Button variant="contained">
-                      REGISTER
-                    </Button>
+                    <Button variant="contained">REGISTER</Button>
                   </CardActions>
                 </Form>
               )
