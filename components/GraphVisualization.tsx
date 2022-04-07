@@ -2,7 +2,7 @@ import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import Typography from '@mui/material/Typography'
 import LineGraph from './Graph/Line'
-import BarGraph from './Graph/Bar'
+import PieChart from './Graph/PieChart'
 
 const GraphVisualization = () => (
   <div
@@ -53,7 +53,7 @@ const GraphVisualization = () => (
         >
           Monthly Policies Sold
         </Typography>
-        <BarGraph />
+        <PieChart />
       </CardContent>
     </Card>
   </div>

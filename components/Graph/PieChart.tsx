@@ -1,6 +1,6 @@
 // @ts-nocheck
 import dynamic from 'next/dynamic'
-import { barData } from './barData'
+import { pieData } from './pieData'
 
 const ResponsivePie = dynamic(
   () => import('@nivo/pie').then((resp) => resp.ResponsivePie),
@@ -9,9 +9,9 @@ const ResponsivePie = dynamic(
   },
 )
 
-const Bar = () => (
+const PieChart = () => (
   <ResponsivePie
-    data={barData}
+    data={pieData}
     margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
     innerRadius={0.5}
     padAngle={0.7}
@@ -129,4 +129,4 @@ const Bar = () => (
   />
 )
 
-export default Bar
+export default PieChart

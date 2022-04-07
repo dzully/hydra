@@ -1,4 +1,4 @@
-export const barData = [
+export const pieData = [
   {
     id: "Home",
     label: "Home",
